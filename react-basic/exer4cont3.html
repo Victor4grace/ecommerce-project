@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <style>
+        body{
+          margin-top: 0px;
+          margin-bottom: 0px;
+         
+        }
+
+        .count-button{
+          background-color: rgb(25, 135,84);
+          color: white;
+          padding: 10px 10px;
+          border: none;
+          margin-right: 10px;
+
+        }
+
+        .container-button{
+          display: flex;
+          justify-content: center;
+          height: 100vh;
+          background: rgb(222,222,222);
+           align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+  
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+     
+
+      function Final(){
+        const [Press, setPress] = React.useState(0)
+        const buttonElem = React.useRef()
+          
+        function Count (){
+            setPress(Press + 1)
+          }
+
+          function Reset(){
+            setPress(0)
+          }
+
+          
+
+          function Self(){
+            setInterval(() =>{
+
+             buttonElem.current.click()
+
+            }, 1000)
+          }
+
+
+
+        return (
+          <div className = 'container-button'>
+          <button ref = {buttonElem}  onClick = {Count} className = 'count-button'>Clicked {Press} {Press <=1 ? 'time' : 'times'} </button>
+
+          <button onClick = {Reset} className = 'count-button' >Reset</button>
+          
+
+          <button onClick = {Self} className = 'count-button'>Auto Click</button>
+          
+          </div>
+        )
+          
+      }
+
+      ReactDOM.createRoot(container).render(<Final />);
+     
+    </script>
+  </body> 
+</html>

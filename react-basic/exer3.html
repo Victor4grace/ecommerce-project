@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+      
+      
+
+    function But(){
+      const [Count, setCount] = React.useState(0)
+      
+       function Reset(){
+        setCount(0);
+      }
+
+      
+      function Counter(){
+        
+
+        function clicked(){
+
+        return (
+          setCount(Count + 1)
+        )
+      }
+
+     
+        return (
+          <>
+              <button onClick = {clicked}>Clicked {Count} {Count <= 1 ? 'time' : 'times'} </button>
+
+              
+          </>
+        )
+      }
+
+
+
+      return (
+        <>
+          <Counter />
+          <Counter />
+          <button onClick = {Reset}>Reset</button>
+        </>
+      )
+      
+    }
+      
+
+      ReactDOM.createRoot(container).render(<But />);
+     
+    </script>
+  </body> 
+</html>

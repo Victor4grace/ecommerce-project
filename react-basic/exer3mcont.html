@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+  
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+      function Final(){
+        const [text, setText] = React.useState('')
+
+        function Showing (event){
+          return (
+            setText(event.target.value)
+          )
+        }
+
+        function Reset (){
+          return (
+            setText('')
+          )
+        }
+
+        function Exam(){
+          return (
+            setText('Alice')
+          )
+        }
+
+
+        return (
+          <>
+            <input placeholder = "Type a name here" onChange = {Showing} value = {text} />
+
+            <button onClick = {Reset}>Reset</button>
+
+            <button onClick = {Exam}>Example</button>
+
+            <p>Hello {text}</p>  
+
+            
+          </>
+        )
+      }
+
+
+      ReactDOM.createRoot(container).render(<Final />);
+     
+    </script>
+  </body> 
+</html>

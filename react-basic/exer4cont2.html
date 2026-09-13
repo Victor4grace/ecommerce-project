@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <style>
+      body{
+        font-family: Arial;
+      }
+
+      .details-button{
+        background-color: rgb(0,123, 255);
+        color: white;
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+
+
+      }
+      .show{
+        margin-left: 10px;
+      }
+
+      .input{
+        padding: 5px 15px;
+        border-radius: 4px;
+        border-width: 1px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+  
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-container');
+
+      function Final(){
+         const time = dayjs().format('HH:mm:ss')
+
+         const [Timely , setTimely] = React.useState(time)
+
+          React.useEffect(() =>{
+            
+            setInterval(() => {
+              console.log('run code')
+                
+                const time = dayjs().format('HH:mm:ss')
+
+                setTimely(time);
+                
+
+              }, 1000)
+          
+          }, [setTimely]);
+
+
+
+        return (
+          <div>
+            Current Time : {Timely}
+          </div>
+        )
+          
+          
+      }
+
+      ReactDOM.createRoot(container).render(<Final />);
+     
+    </script>
+  </body> 
+</html>

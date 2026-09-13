@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+
+    <div class="js-display"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-display');
+     
+      const productCost = 10 + (2*8);
+      const shippingCost = 5;
+      const total = productCost + shippingCost;
+
+      const date = dayjs().format('MMMM D');
+
+      const time = dayjs().format('HH:mm:ss')
+
+      const div = (
+        <div>
+          <button>Good Job!</button>
+          <p>My name is Victor</p> 
+          
+          <p>Cotton socks</p>
+          <p>Price: $10</p>
+          <button>Add to Cart</button>
+          <p>Product cost: ${productCost}</p>
+          <p>Shipping cost: ${shippingCost}</p>
+          <p>Total cost: ${total}</p>
+          <button>Place your order</button>
+
+          <p>Today is {date}</p>
+
+          <p>Current time: {time}</p>
+
+        </div>
+      )
+      const button = 
+
+
+
+      ReactDOM.createRoot(container).render(div);
+
+      
+      console.log(total);
+      
+    </script>
+
+    
+
+    
+  </body> 
+</html>

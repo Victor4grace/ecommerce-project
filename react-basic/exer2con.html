@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+
+    <div class="js-display"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-display');
+
+      // function Product(){
+        
+      //   return (
+      //     <div>
+      //       <p>Cotton socks</p>
+      //       <p>Price: $10.90</p>
+      //       <button>Add to Cart</button>
+      //     </div>
+      //   )
+      // }
+
+      function ProductDetails(props){
+        const {imageSrc} = props
+        const product = props.product;
+        const price = props.price;
+        const discount = props.dscount;
+
+
+        return(
+
+        
+          <div>
+
+            <img src = {imageSrc} width = "70" />
+            
+            <p>{product}</p>
+
+            {discount ? <p>Price:<del> ${price} </del></p> : <p>Price: ${price} </p> }
+
+            
+            <button>Add to Cart</button>
+          </div>
+        )
+        
+
+      }
+
+      
+
+      function App(){
+
+          return (
+            <div>
+              <ProductDetails product = "Cotton socks" price= "10.00" discount ="5.45" imageSrc = "cotton-socks.png" />
+
+              <ProductDetails product = "Tennis balls" price= "6.00" imageSrc = "tennis-balls.png"/>
+
+              <ProductDetails product = "Plain T-Shirt" price= "7.99" imageSrc = "plain-t-shirt.png"/>
+            </div>
+        )}
+     
+      
+
+      ReactDOM.createRoot(container).render(<App />);
+
+      
+      
+      
+    </script>
+
+    
+
+    
+  </body> 
+</html>

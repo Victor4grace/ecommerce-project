@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+
+    <div class="js-display"></div>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+      const container = document.querySelector('.js-display');
+
+      function LoginForm (){
+        return (
+          <div>
+            <p>Hello welcome to my website</p>
+             <input placeholder = "Email" /> <br />
+             <input type = "Password" placeholder = "Password" /> <br />
+            
+            <button>Login</button>
+            <button>Sign up</button>
+            
+          </div>
+        )
+      }
+
+      function App(){
+
+          return <LoginForm />
+        }
+     
+      
+
+      ReactDOM.createRoot(container).render(<App />);
+
+      
+      
+      
+    </script>
+
+    
+
+    
+  </body> 
+</html>
