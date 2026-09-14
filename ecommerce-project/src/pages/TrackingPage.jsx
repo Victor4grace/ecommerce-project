@@ -1,19 +1,21 @@
+import{Link} from 'react-router'
 import '../component/header.css';
 import './TrackingPage.css'
 
 export function TrackingPage() {
   return (
     <>
+    <link rel="icon" type="image/svg+xml" href="/tracking-favicon.png" />
       <title>Tracking</title>
 
       <div className="header">
         <div className="left-section">
-          <a href="/" className="header-link">
+          <Link href="/" className="header-link">
             <img className="logo"
               src="images/logo-white.png" />
             <img className="mobile-logo"
               src="images/mobile-logo-white.png" />
-          </a>
+          </Link>
         </div>
 
         <div className="middle-section">
@@ -25,24 +27,24 @@ export function TrackingPage() {
         </div>
 
         <div className="right-section">
-          <a className="orders-link header-link" href="/order">
+          <Link className="orders-link header-link" href="/order">
 
             <span className="orders-text">Orders</span>
-          </a>
+          </Link>
 
-          <a className="cart-link header-link" href="/checkout">
+          <Link className="cart-link header-link" href="/checkout">
             <img className="cart-icon" src="images/icons/cart-icon.png" />
             <div className="cart-quantity">3</div>
             <div className="cart-text">Cart</div>
-          </a>
+          </Link>
         </div>
       </div>
 
       <div className="tracking-page">
         <div className="order-tracking">
-          <a className="back-to-orders-link link-primary" href="/order">
+          <Link className="back-to-orders-link link-primary" href="/order">
             View all orders
-          </a>
+          </Link>
 
           <div className="delivery-date">
             Arriving on Monday, June 13
