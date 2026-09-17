@@ -2,8 +2,8 @@ import axios from 'axios';
 import dayjs from 'dayjs'
 import { useState, useEffect, Fragment } from 'react'
 import { Link } from 'react-router'
-import buy from '../assets/images/icons/buy-again.png'
-import { Header } from '../component/Header'
+import buy from '../../assets/images/icons/buy-again.png'
+import { Header } from '../../component/Header'
 import './OrdersPage.css'
 
 export function OrdersPage({ cart }) {
