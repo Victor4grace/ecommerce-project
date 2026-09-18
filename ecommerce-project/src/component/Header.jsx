@@ -3,11 +3,12 @@ import cartLogo from '../assets/images/icons/cart-icon.png'
 import search from '../assets/images/icons/search-icon.png'
 import './header.css'
 
-export function Header({ cart }){
+export function Header({ cart   }){
   let totalQuantity = 0
 
  cart.forEach((cartItem) => {
     totalQuantity += cartItem.quantity;
+    
  })
 
   return (

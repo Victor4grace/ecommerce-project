@@ -1,36 +1,39 @@
 import axios from 'axios'
-import {Routes, Route} from 'react-router';
-import {useState, useEffect} from 'react';
+import { Routes, Route } from 'react-router';
+import { useState, useEffect } from 'react';
 import { HomePage } from './pages/home/HomePage';
 import { CheckoutPage } from './pages/checkout/CheckoutPage';
-import {OrdersPage} from './pages/orders/OrdersPage';
-import{TrackingPage} from './pages/TrackingPage'
-import {Header404} from './pages/header404'
+import { OrdersPage } from './pages/orders/OrdersPage';
+import { TrackingPage } from './pages/TrackingPage'
+import { Header404 } from './pages/header404'
 import './App.css'
 
 
 function App() {
-  const [cart, setCart]= useState([])
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
-     axios.get('/api/cart-items?expand=product')
-        .then((response) => {
-          setCart(response.data);
-        });
+    const fetchAppData = (async() => {
+      const response = await axios.get('/api/cart-items?expand=product')
+
+      setCart(response.data);
+    })
+
+    fetchAppData()
   }, [])
- 
+
 
   return (
-  <Routes>
-    <Route index element ={<HomePage cart={cart} />} />
-    <Route path= "checkout" element ={<CheckoutPage cart={cart} />} />
-    <Route path = "orders" element = {<OrdersPage cart={cart} />}/>
-    <Route path = "tracking" element = {<TrackingPage />}/>
-    <Route path="*" element = {<Header404 />} />
+    <Routes>
+      <Route index element={<HomePage cart={cart} />} />
+      <Route path="checkout" element={<CheckoutPage cart={cart} />} />
+      <Route path="orders" element={<OrdersPage cart={cart} />} />
+      <Route path="tracking" element={<TrackingPage />} />
+      <Route path="*" element={<Header404 />} />
 
-  </Routes>
-    
-  
+    </Routes>
+
+
   )
 }
 
