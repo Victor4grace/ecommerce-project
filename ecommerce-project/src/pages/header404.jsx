@@ -1,6 +1,6 @@
 import './header404.css'
 
-export function Header404(){
+export function Header404( { cart }){
 
   return(
     <div className = "not-found">

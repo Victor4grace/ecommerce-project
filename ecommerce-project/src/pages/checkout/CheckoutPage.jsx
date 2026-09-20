@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { CheckoutHeader } from './CheckoutHeader';
-import { OrderSummary } from './OrderSummary';
+import { OrderSummary } from '../orders/OrderSummary';
 import { PaymentSummary } from './PaymentSummary';
 import './CheckoutHeader.css'
 import './CheckoutPage.css'
@@ -34,7 +34,7 @@ export function CheckoutPage({ cart }) {
 
       <title>Checkout</title>
 
-      <CheckoutHeader />
+      <CheckoutHeader cart={cart} />
 
       <div className="checkout-page">
         <div className="page-title">Review your order</div>

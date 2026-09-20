@@ -1,3 +1,4 @@
+import axios from 'axios'
 import checkmark from '../../assets/images/icons/checkmark.png'
 
 
@@ -5,6 +6,7 @@ export function ProductGrid({products}) {
   return (
     <div className="products-grid">
       {products.map((product) => {
+        const rating = JSON.parse(product.rating);
         return (
 
           <div key={product.id} className="product-container">
@@ -19,9 +21,9 @@ export function ProductGrid({products}) {
 
             <div className="product-rating-container">
               <img className="product-rating-stars"
-                src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+                src={`images/ratings/rating-${rating.stars * 10}.png`} />
               <div className="product-rating-count link-primary">
-                {product.rating.count}
+                {rating.count}
               </div>
             </div>
 
@@ -51,7 +53,12 @@ export function ProductGrid({products}) {
               Added
             </div>
 
-            <button className="add-to-cart-button button-primary">
+            <button className="add-to-cart-button button-primary" onClick ={() => {
+              axios.post('/api/cart-items', {
+                productId:product.id,
+                quantity: 1
+              })
+            }}>
               Add to Cart
             </button>
           </div>

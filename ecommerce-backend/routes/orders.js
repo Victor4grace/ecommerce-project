@@ -89,7 +89,9 @@ router.get('/:orderId', async (req, res) => {
   }
 
   if (expand === 'products') {
-    const products = await Promise.all(order.products.map(async (product) => {
+    const orderProducts = JSON.parse(order.products);
+
+    const products = await Promise.all(orderProducts.map(async (product) => {
       const productDetails = await Product.findById(product.productId);
       return {
         ...product,
