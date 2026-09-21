@@ -4,7 +4,7 @@ import { CartItemDetails } from '../checkout/CartItemDetails';
 import { OrdinaryDeliveryDate } from './OrdinaryDeliveryDate';
 
 
-export function SelectedDeliveryOption({deliveryOptions, cart , selectedDeliveryOption}) {
+export function SelectedDeliveryOption({deliveryOptions, cart , selectedDeliveryOption , loadCart}) {
   return (
     <>
     
@@ -17,11 +17,13 @@ export function SelectedDeliveryOption({deliveryOptions, cart , selectedDelivery
 
         return (
           <div key={cartItem.productId} className="cart-item-container">
-            <OrdinaryDeliveryDate />
+            <OrdinaryDeliveryDate selectedDeliveryOption={selectedDeliveryOption} />
             <div className="cart-item-details-grid">
               <CartItemDetails cartItem={cartItem}/>
 
-              <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions} />
+              <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions} loadCart= { loadCart } />
+
+              
             </div>
           </div>
         )

@@ -1,4 +1,4 @@
-export function PaymentSummary({paymentSummary}){
+export function PaymentSummary({paymentSummary , loadCart}){
   return(
     <div className="payment-summary">
             <div className="payment-summary-title">
@@ -36,9 +36,10 @@ export function PaymentSummary({paymentSummary}){
                   Place your order
                 </button>
               </>
+             
             )}
 
-
+             loadCart()
 
           </div>
   )

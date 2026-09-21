@@ -6,8 +6,7 @@ export function Product({product, loadCart}) {
   const [quantity, setQuantity] = useState(1);
   const rating = JSON.parse(product.rating);
 
-  const addToCart = (){
-    async () => {
+  const addToCart =  async () => {
         await axios.post('/api/cart-items', {
           productId: product.id,
           quantity: quantity
@@ -15,7 +14,7 @@ export function Product({product, loadCart}) {
 
         await loadCart()
       }
-  }
+  
 
   const selectQuantity = (event) => {
           const quantitySelected = Number(event.target.value)
