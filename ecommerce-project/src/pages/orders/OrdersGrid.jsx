@@ -3,9 +3,9 @@ import {Fragment} from 'react'
 import buy from '../../assets/images/icons/buy-again.png'
 import { Link } from 'react-router'
 import { OrderHeader } from './OrderHeader'
-import { OrderDetailsGrid } from './OrderInnerGrid'
+import { OrderDetailsGrid } from './OrderDetailsGrid'
 
-export function OrdersGrid({orders}) {
+export function OrdersGrid({orders, loadCart}) {
   return (
     <div className="orders-grid">
       {orders.map((order) => {
@@ -14,7 +14,7 @@ export function OrdersGrid({orders}) {
 
             <OrderHeader order= {order}/>
 
-            <OrderDetailsGrid order= {order} />
+            <OrderDetailsGrid order= {order} loadCart={loadCart} />
 
           </div>
         )

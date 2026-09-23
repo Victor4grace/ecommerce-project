@@ -6,6 +6,8 @@ export function Product({product, loadCart}) {
   const [quantity, setQuantity] = useState(1);
   const rating = JSON.parse(product.rating);
 
+   const [addedMessage, setAddedMessage] = useState(false)
+
   const addToCart =  async () => {
         await axios.post('/api/cart-items', {
           productId: product.id,
@@ -13,6 +15,13 @@ export function Product({product, loadCart}) {
         })
 
         await loadCart()
+
+
+        setAddedMessage(true)
+
+        setTimeout(() =>{
+          setAddedMessage(false)
+        }, 2000)
       }
   
 
@@ -21,6 +30,8 @@ export function Product({product, loadCart}) {
           setQuantity(quantitySelected);
           
         }
+
+     
 
   return (
     <div  className="product-container">
@@ -62,12 +73,12 @@ export function Product({product, loadCart}) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div className="added-to-cart" style = {{opacity: addedMessage ? 1 : 0 }}>
         <img src={checkmark} />
         Added
       </div>
 
-      <button className="add-to-cart-button button-primary" onClick={addToCart}>
+      <button className="add-to-cart-button button-primary" onClick={ addToCart }>
         Add to Cart
       </button>
     </div>
