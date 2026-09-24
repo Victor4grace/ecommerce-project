@@ -4,7 +4,7 @@ import checkmark from '../../assets/images/icons/checkmark.png'
 
 export function Product({product, loadCart}) {
   const [quantity, setQuantity] = useState(1);
-  const rating = JSON.parse(product.rating);
+  // const rating = JSON.parse(product.rating);
 
    const [addedMessage, setAddedMessage] = useState(false)
 
@@ -48,9 +48,9 @@ export function Product({product, loadCart}) {
       <div className="product-rating-container">
         <img className="product-rating-stars"
         data-testid = "product-rating-stars-image"
-          src={`images/ratings/rating-${rating.stars * 10}.png`} />
+          src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
         <div className="product-rating-count link-primary">
-          {rating.count}
+          {product.rating.count}
         </div>
       </div>
 
@@ -80,7 +80,8 @@ export function Product({product, loadCart}) {
         Added
       </div>
 
-      <button className="add-to-cart-button button-primary" onClick={ addToCart }>
+      <button className="add-to-cart-button button-primary"
+      data-testid = "add-to-cart-button" onClick={ addToCart }>
         Add to Cart
       </button>
     </div>
