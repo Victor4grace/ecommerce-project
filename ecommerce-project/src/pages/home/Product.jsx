@@ -2,42 +2,44 @@ import { useState } from 'react'
 import axios from 'axios';
 import checkmark from '../../assets/images/icons/checkmark.png'
 
-export function Product({product, loadCart}) {
+export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
   // const rating = JSON.parse(product.rating);
 
-   const [addedMessage, setAddedMessage] = useState(false)
+  const [addedMessage, setAddedMessage] = useState(false)
 
-  const addToCart =  async () => {
-        await axios.post('/api/cart-items', {
-          productId: product.id,
-          quantity: quantity
-        })
+  const addToCart = async () => {
+    await axios.post('/api/cart-items', {
+      productId: product.id,
+      quantity: quantity
+    })
 
-        await loadCart()
+    await loadCart()
 
 
-        setAddedMessage(true)
+    setAddedMessage(true)
 
-        setTimeout(() =>{
-          setAddedMessage(false)
-        }, 2000)
-      }
-  
+    setTimeout(() => {
+      setAddedMessage(false)
+    }, 2000)
+  }
+
 
   const selectQuantity = (event) => {
-          const quantitySelected = Number(event.target.value)
-          setQuantity(quantitySelected);
-          
-        }
+    const quantitySelected = Number(event.target.value)
+    setQuantity(quantitySelected);
 
-     
+  }
+
+
 
   return (
-    <div  className="product-container">
+    <div className="product-container"
+      data-testid="product-container"
+    >
       <div className="product-image-container">
         <img className="product-image"
-        data-testid = "product-image"
+          data-testid="product-image"
           src={product.image} />
       </div>
 
@@ -47,7 +49,7 @@ export function Product({product, loadCart}) {
 
       <div className="product-rating-container">
         <img className="product-rating-stars"
-        data-testid = "product-rating-stars-image"
+          data-testid="product-rating-stars-image"
           src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
         <div className="product-rating-count link-primary">
           {product.rating.count}
@@ -75,13 +77,13 @@ export function Product({product, loadCart}) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart" style = {{opacity: addedMessage ? 1 : 0 }}>
+      <div className="added-to-cart" style={{ opacity: addedMessage ? 1 : 0 }}>
         <img src={checkmark} />
         Added
       </div>
 
       <button className="add-to-cart-button button-primary"
-      data-testid = "add-to-cart-button" onClick={ addToCart }>
+        data-testid="add-to-cart-button" onClick={addToCart}>
         Add to Cart
       </button>
     </div>
