@@ -25,10 +25,13 @@ export function Header({ cart   }){
     <div className="header">
         <div className="left-section">
           <NavLink to="/" className="header-link">
-            <img className="logo"
+            {/* <img className="logo"
               src="images/logo-white.png" />
             <img className="mobile-logo"
-              src="images/mobile-logo-white.png" />
+              src="images/mobile-logo-white.png" /> */}
+
+              <span className='v-logo'>V</span> <span className='i-logo'>ICTOR</span>
+            
           </NavLink>
         </div>
 

@@ -35,13 +35,28 @@
 }
 
 .header .header-link:hover {
-  border: 1px solid white;
+  border: 1px solid orange;
 }
 
 .header .logo {
   height: 26px;
   margin-top: 1px;
 }
+
+.v-logo{
+  font-size: 50px;
+  color: orange;
+  font-weight: bold;
+}
+
+.i-logo{
+  font-size: 30px;
+  color:white ;
+  font-weight: bold;
+}
+
+
+
 
 .header .mobile-logo {
   display: none;

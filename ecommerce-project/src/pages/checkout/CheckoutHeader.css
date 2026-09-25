@@ -35,6 +35,23 @@
   display: none;
 }
 
+.all-left-section{
+ width: 100%;
+}
+
+.cp-logo {
+  font-size: 50px;
+  color: orange;
+  font-weight: bold;
+}
+
+.cp2-logo{
+  font-size: 20px;
+  color: rgb(25, 135, 84);
+  font-weight: bold;
+}
+
+
 /* @media is used to create responsive design (making the
    website look good on any screen size). This @media
    means when the screen width is 575px or less, different
