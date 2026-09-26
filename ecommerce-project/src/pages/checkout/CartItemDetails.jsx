@@ -6,7 +6,9 @@ export function CartItemDetails({ cartItem, loadCart }) {
   const [updating, setUpdating] = useState(false);
 
   const deleteCartItem = async () => {
-    await axios.delete(`api/cart-items/${cartItem.productId}`);
+    // await axios.delete(`api/cart-items/${cartItem.productId}`);
+    await axios.delete(`https://ecommerce-backend-14uf.onrender.com/api/cart-items/${cartItem.productId}`);
+
     await loadCart()
   }
 
@@ -29,9 +31,13 @@ export function CartItemDetails({ cartItem, loadCart }) {
 
   const newQuantity = async () => {
     if (updating) {
-      await axios.put(`/api/cart-items/${cartItem.productId}`, {
-        quantity: Number(quantity)
-      });
+      // await axios.put(`/api/cart-items/${cartItem.productId}`, {
+      //   quantity: Number(quantity)
+      // });
+
+      await axios.put(`https://ecommerce-backend-14uf.onrender.com/api/cart-items/${cartItem.productId}`, {
+  quantity: Number(quantity)
+});
 
       await loadCart();
     }

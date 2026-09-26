@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import axios from 'axios';
 
-export function DeliveryOptions({cartItem, deliveryOptions, loadCart}) {
+export function DeliveryOptions({ cartItem, deliveryOptions, loadCart }) {
   return (
     <div className="delivery-options">
       <div className="delivery-options-title">
@@ -15,21 +15,25 @@ export function DeliveryOptions({cartItem, deliveryOptions, loadCart}) {
         }
 
         const updateDeliveryOption = async () => {
-         await axios.put(`/api/cart-items/${cartItem.productId}` , {
-          deliveryOptionId: deliveryOption.id
-         })
+          //  await axios.put(`/api/cart-items/${cartItem.productId}` , {
+          //   deliveryOptionId: deliveryOption.id
+          //  })
 
-         await loadCart();
+          await axios.put(`https://ecommerce-backend-14uf.onrender.com/api/cart-items/${cartItem.productId}`, {
+            deliveryOptionId: deliveryOption.id
+          })
+
+          await loadCart();
 
         }
 
         return (
-          <div key={deliveryOption.id} className="delivery-option" onClick = {updateDeliveryOption}
-          
+          <div key={deliveryOption.id} className="delivery-option" onClick={updateDeliveryOption}
+
           >
             <input type="radio"
               checked={deliveryOption.id === cartItem.deliveryOptionId}
-              onChange = {() => {}}
+              onChange={() => { }}
               className="delivery-option-input"
               name={`delivery-option-${cartItem.productId}`} />
             <div>
