@@ -8,17 +8,38 @@ import { OrdersGrid } from './OrdersGrid';
 export function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([])
 
-  useEffect(() => {
-    const fetchOrdersData = async () =>{
-     const response =   await axios.get('/api/orders?expand=products')
-      
-    setOrders(response.data)
-  
-    }
+  // useEffect(() => {
+  //   const fetchOrdersData = async () =>{
+  //   //  const response =   await axios.get('/api/orders?expand=products')
+  //   axios.get('https://ecommerce-backend-14uf.onrender.com/api/orders?expand=products')
 
-    fetchOrdersData()
+  //   console.log(response.data);
+      
+  //   setOrders(response.data)
+  
+  //   }
+
+  //   fetchOrdersData()
    
-  }, [])
+  // }, [])
+  
+useEffect(() => {
+  const fetchOrdersData = async () => {
+    const response = await axios.get(
+      'https://ecommerce-backend-14uf.onrender.com/api/orders?expand=products'
+    )
+
+    console.log('ORDERS RESPONSE:', response.data)
+    console.log('IS ARRAY:', Array.isArray(response.data))
+
+    setOrders(response.data)
+  }
+
+  fetchOrdersData()
+}, [])
+
+
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/orders-favicon.png" />
