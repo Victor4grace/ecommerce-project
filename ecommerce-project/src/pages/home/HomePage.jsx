@@ -15,8 +15,12 @@ const [searchParams] = useSearchParams()
 
 const search = searchParams.get('search')
 
-  const urlPath = search ? `/api/products?search=${search}`
-  : `/api/products`;
+  // const urlPath = search ? `/api/products?search=${search}`
+  // : `/api/products`;
+
+  const urlPath = search
+  ? `https://ecommerce-backend-14uf.onrender.com/api/products?search=${search}`
+  : `https://ecommerce-backend-14uf.onrender.com/api/products`;
 
   useEffect(()=>{
     const getHomeData = (async ()=>{
