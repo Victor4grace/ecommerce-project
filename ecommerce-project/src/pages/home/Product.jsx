@@ -4,12 +4,14 @@ import checkmark from '../../assets/images/icons/checkmark.png'
 
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
-  const rating = JSON.parse(product.rating);
+  // const rating = JSON.parse(product.rating);
+  const rating = product.rating;
 
   const [addedMessage, setAddedMessage] = useState(false)
 
   const addToCart = async () => {
-    await axios.post('/api/cart-items', {
+    // await axios.post('/api/cart-items', {
+    await axios.post('https://ecommerce-backend-14uf.onrender.com/api/cart-items', {
       productId: product.id,
       quantity: quantity
     })
